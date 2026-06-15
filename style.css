@@ -1,0 +1,159 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#f5f5f7;
+}
+
+.container{
+    display:flex;
+    min-height:100vh;
+}
+
+.sidebar{
+    width:340px;
+    background:#2563eb;
+    color:white;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+}
+
+.logo{
+    padding:30px;
+    font-size:28px;
+    font-weight:bold;
+}
+
+.menu{
+    padding:0 15px;
+}
+
+.menu-item{
+    padding:12px;
+    border-radius:8px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.menu-item.active{
+    background:rgba(255,255,255,.15);
+}
+
+.menu-item:hover{
+    background-color:#1d4ed8;
+}
+
+.user{
+    border-top:1px solid rgba(255,255,255,.2);
+    padding:25px;
+}
+
+.main{
+    flex:1;
+    padding:35px;
+}
+
+.main h1{
+    font-size:48px;
+    font-weight:bold;
+    margin-bottom:30px;
+}
+
+.saldo-card{
+    background:#2563eb;
+    color:white;
+    padding:40px;
+    border-radius:20px;
+    margin-bottom:30px;
+}
+
+.saldo-card span{
+    font-size:22px;
+}
+
+.saldo-card h2{
+    font-size:72px;
+    font-weight:700;  
+}
+
+.cards{
+    display:flex;
+    gap:30px;
+}
+
+.card{
+    background:white;
+    border:1px solid #e5e7eb;
+    border-radius:18px;
+    padding:30px;
+    flex:1;
+}
+
+.card h3{
+    margin-bottom:30px;
+}
+
+.gasto{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:25px;
+    border-bottom:1px solid #eee;
+    padding-bottom:15px;
+}
+
+.gasto small{
+    color:#777;
+}
+
+.grafico{
+    width:260px;
+    height:260px;
+    margin:30px auto;
+    border-radius:50%;
+
+    background:
+    conic-gradient(
+        #2563eb 0% 35%,
+        #60a5fa 35% 60%,
+        #93c5fd 60% 80%,
+        #dbeafe 80% 100%
+    );
+
+    position:relative;
+}
+
+.grafico::after{
+    content:'';
+    width:130px;
+    height:130px;
+    background:white;
+    border-radius:50%;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+}
+
+.legenda{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+    margin-top:20px;
+}
+
+.item-legenda{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.cor{
+    width:14px;
+    height:14px;
+    border-radius:50%;
+}

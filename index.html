@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fintech Dashboard</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<div class="container">
+
+    <aside class="sidebar">
+
+        <div>
+
+            <div class="logo">
+                Fintech
+            </div>
+
+            <div class="menu">
+
+                <div class="menu-item active">
+                    Dashboard
+                </div>
+
+                <div class="menu-item">
+                    Registrar Gasto
+                </div>
+
+                <div class="menu-item">
+                    Lista de Gastos
+                </div>
+
+                <div class="menu-item">
+                    Saldo
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="user">
+            <strong>Leonardo</strong><br>
+            Usuário
+        </div>
+
+    </aside>
+
+    <main class="main">
+
+        <h1>Dashboard</h1>
+
+        <div class="saldo-card">
+            <span>Saldo Total</span>
+            <h2>R$ 5.000,00</h2>
+        </div>
+
+        <div class="cards">
+
+            <div class="card">
+
+                <h3>Últimos Gastos</h3>
+
+                <div class="gasto">
+                    <div>
+                        <strong>Mercado</strong><br>
+                        <small>Alimentação</small>
+                    </div>
+                    <strong>R$ 100,00</strong>
+                </div>
+
+                <div class="gasto">
+                    <div>
+                        <strong>Uber</strong><br>
+                        <small>Transporte</small>
+                    </div>
+                    <strong>R$ 50,00</strong>
+                </div>
+
+                <div class="gasto">
+                    <div>
+                        <strong>Restaurante</strong><br>
+                        <small>Alimentação</small>
+                    </div>
+                    <strong>R$ 80,00</strong>
+                </div>
+
+                <div class="gasto">
+                    <div>
+                        <strong>Cinema</strong><br>
+                        <small>Lazer</small>
+                    </div>
+                    <strong>R$ 45,00</strong>
+                </div>
+
+            </div>
+
+            <div class="card">
+
+                <h3>Gastos por Categoria</h3>
+
+                <div class="grafico"></div>
+
+                <div class="legenda">
+
+                    <div class="item-legenda">
+                        <div class="cor" style="background:#2563eb"></div>
+                        Alimentação
+                    </div>
+
+                    <div class="item-legenda">
+                        <div class="cor" style="background:#60a5fa"></div>
+                        Transporte
+                    </div>
+
+                    <div class="item-legenda">
+                        <div class="cor" style="background:#93c5fd"></div>
+                        Lazer
+                    </div>
+
+                    <div class="item-legenda">
+                        <div class="cor" style="background:#dbeafe"></div>
+                        Outros
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+</div>
+
+</body>
+</html>
+
+<footer class="mt-8 text-center text-gray-500">
+    © 2026 Fintech Dashboard - FIAP
+</footer>
