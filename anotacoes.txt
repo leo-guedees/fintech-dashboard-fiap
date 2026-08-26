@@ -1,26 +1,26 @@
-public class Conta {
+public class Transacao {
 
-    private Integer numeroConta;
-    private String tipoConta;
-    private Double saldo;
-    private String agencia;
+    private Integer idTransacao;
+    private String tipoTransacao;
+    private Double valor;
+    private String dataTransacao;
 
-    public Conta(Integer numeroConta, String tipoConta, Double saldo, String agencia) {
-        this.numeroConta = numeroConta;
-        this.tipoConta = tipoConta;
-        this.saldo = saldo;
-        this.agencia = agencia;
+    public Transacao(Integer idTransacao, String tipoTransacao, Double valor, String dataTransacao) {
+        this.idTransacao = idTransacao;
+        this.tipoTransacao = tipoTransacao;
+        this.valor = valor;
+        this.dataTransacao = dataTransacao;
     }
 
-    public void consultarSaldo() {
-        System.out.println("Executando método consultarSaldo.");
+    public void realizarTransacao() {
+        System.out.println("Executando método realizarTransacao.");
     }
 
-    public void realizarDeposito() {
-        System.out.println("Executando método realizarDeposito.");
+    public void consultarTransacao() {
+        System.out.println("Executando método consultarTransacao.");
     }
 
-    public void realizarSaque() {
-        System.out.println("Executando método realizarSaque.");
+    public void cancelarTransacao() {
+        System.out.println("Executando método cancelarTransacao.");
     }
 }
