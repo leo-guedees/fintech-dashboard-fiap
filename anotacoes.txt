@@ -1,49 +1,69 @@
-public class Main {
+public class Transacao {
 
-    public static void main(String[] args) {
+    private Integer idTransacao;
+    private String tipoTransacao;
+    private Double valor;
+    private String dataTransacao;
+    private boolean realizada;
+    private boolean cancelada;
 
-        System.out.println("===== FINTECH FIAP =====");
+    public Transacao(Integer idTransacao, String tipoTransacao, Double valor, String dataTransacao) {
+        this.idTransacao = idTransacao;
+        this.tipoTransacao = tipoTransacao;
+        this.valor = valor;
+        this.dataTransacao = dataTransacao;
+        this.realizada = false;
+        this.cancelada = false;
+    }
 
-        ContaCorrente contaCorrente = new ContaCorrente(
-                1001,
-                1500.00,
-                "1234",
-                1000.00
-        );
+    public void realizarTransacao() {
+        if (valor != null && valor > 0 && !cancelada) {
+            realizada = true;
+            System.out.println("Transação realizada com sucesso.");
+        } else {
+            System.out.println("Não foi possível realizar a transação.");
+        }
+    }
 
-        ContaInvestimento contaInvestimento = new ContaInvestimento(
-                2001,
-                5000.00,
-                "1234",
-                1.5
-        );
+    public void consultarTransacao() {
+        System.out.println("ID da transação: " + idTransacao);
+        System.out.println("Tipo: " + tipoTransacao);
+        System.out.println("Valor: R$ " + valor);
+        System.out.println("Data: " + dataTransacao);
+        System.out.println("Realizada: " + realizada);
+        System.out.println("Cancelada: " + cancelada);
+    }
 
-        System.out.println("\n--- CONTA CORRENTE ---");
-        contaCorrente.consultarSaldo();
+    public void cancelarTransacao() {
+        if (realizada && !cancelada) {
+            cancelada = true;
+            System.out.println("Transação cancelada com sucesso.");
+        } else {
+            System.out.println("Não foi possível cancelar a transação.");
+        }
+    }
 
-        contaCorrente.realizarDeposito(500.00);
+    public Integer getIdTransacao() {
+        return idTransacao;
+    }
 
-        contaCorrente.realizarSaque(200.00);
+    public String getTipoTransacao() {
+        return tipoTransacao;
+    }
 
-        contaCorrente.consultarLimite();
+    public Double getValor() {
+        return valor;
+    }
 
-        System.out.println("\n--- CONTA INVESTIMENTO ---");
-        contaInvestimento.consultarSaldo();
+    public String getDataTransacao() {
+        return dataTransacao;
+    }
 
-        contaInvestimento.calcularRendimento();
+    public boolean isRealizada() {
+        return realizada;
+    }
 
-        contaInvestimento.realizarDeposito(1000.00);
-
-        contaInvestimento.consultarSaldo();
-
-        System.out.println("\n--- POLIMORFISMO ---");
-
-        Conta conta1 = contaCorrente;
-        Conta conta2 = contaInvestimento;
-
-        conta1.consultarSaldo();
-        conta2.consultarSaldo();
-
-        System.out.println("\n===== FIM DA EXECUÇÃO =====");
+    public boolean isCancelada() {
+        return cancelada;
     }
 }
