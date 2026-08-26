@@ -1,26 +1,49 @@
-public class Cartao_Investimento {
+public class Main {
 
-    private Integer numeroCartao;
-    private String tipoCartao;
-    private Double limite;
-    private Double saldoInvestido;
+    public static void main(String[] args) {
 
-    public Cartao_Investimento(Integer numeroCartao, String tipoCartao, Double limite, Double saldoInvestido) {
-        this.numeroCartao = numeroCartao;
-        this.tipoCartao = tipoCartao;
-        this.limite = limite;
-        this.saldoInvestido = saldoInvestido;
-    }
+        Usuario usuario = new Usuario(
+                1,
+                "Leonardo Guedes",
+                "leonardo@email.com",
+                "11999999999"
+        );
 
-    public void consultarLimite() {
-        System.out.println("Executando método consultarLimite.");
-    }
+        Conta conta = new Conta(
+                12345,
+                "Corrente",
+                1500.00,
+                "0001"
+        );
 
-    public void realizarInvestimento() {
-        System.out.println("Executando método realizarInvestimento.");
-    }
+        Transacao transacao = new Transacao(
+                1,
+                "PIX",
+                500.00,
+                "26/08/2026"
+        );
 
-    public void consultarSaldoInvestido() {
-        System.out.println("Executando método consultarSaldoInvestido.");
+        Cartao_Investimento cartao = new Cartao_Investimento(
+                123456,
+                "Visa Infinite",
+                10000.00,
+                5000.00
+        );
+
+        usuario.cadastrarUsuario();
+        usuario.atualizarUsuario();
+        usuario.consultarUsuario();
+
+        conta.consultarSaldo();
+        conta.realizarDeposito();
+        conta.realizarSaque();
+
+        transacao.realizarTransacao();
+        transacao.consultarTransacao();
+        transacao.cancelarTransacao();
+
+        cartao.consultarLimite();
+        cartao.realizarInvestimento();
+        cartao.consultarSaldoInvestido();
     }
 }
