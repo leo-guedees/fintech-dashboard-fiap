@@ -1,49 +1,56 @@
-public class Main {
+public class Conta {
 
-    public static void main(String[] args) {
+    private Integer numeroConta;
+    private String tipoConta;
+    private Double saldo;
+    private String agencia;
 
-        Usuario usuario = new Usuario(
-                1,
-                "Leonardo Guedes",
-                "leonardo@email.com",
-                "11999999999"
-        );
+    public Conta(Integer numeroConta, String tipoConta, Double saldo, String agencia) {
+        this.numeroConta = numeroConta;
+        this.tipoConta = tipoConta;
+        this.saldo = saldo;
+        this.agencia = agencia;
+    }
 
-        Conta conta = new Conta(
-                12345,
-                "Corrente",
-                1500.00,
-                "0001"
-        );
+    public void consultarSaldo() {
+        System.out.println("Saldo da conta: R$ " + saldo);
+    }
 
-        Transacao transacao = new Transacao(
-                1,
-                "PIX",
-                500.00,
-                "26/08/2026"
-        );
+    public void realizarDeposito(Double valor) {
+        if (valor > 0) {
+            saldo += valor;
+            System.out.println("Depósito realizado com sucesso!");
+            System.out.println("Novo saldo: R$ " + saldo);
+        } else {
+            System.out.println("Valor de depósito inválido.");
+        }
+    }
 
-        Cartao_Investimento cartao = new Cartao_Investimento(
-                123456,
-                "Visa Infinite",
-                10000.00,
-                5000.00
-        );
+    public void realizarSaque(Double valor) {
+        if (valor <= 0) {
+            System.out.println("Valor de saque inválido.");
+        } else if (valor > saldo) {
+            System.out.println("Saldo insuficiente.");
+        } else {
+            saldo -= valor;
+            System.out.println("Saque realizado com sucesso!");
+            System.out.println("Novo saldo: R$ " + saldo);
+        }
+    }
 
-        usuario.cadastrarUsuario();
-        usuario.atualizarUsuario();
-        usuario.consultarUsuario();
+    public Integer getNumeroConta() {
+        return numeroConta;
+    }
 
-        conta.consultarSaldo();
-        conta.realizarDeposito();
-        conta.realizarSaque();
+    public String getTipoConta() {
+        return tipoConta;
+    }
 
-        transacao.realizarTransacao();
-        transacao.consultarTransacao();
-        transacao.cancelarTransacao();
+    public Double getSaldo() {
+        return saldo;
+    }
 
-        cartao.consultarLimite();
-        cartao.realizarInvestimento();
-        cartao.consultarSaldoInvestido();
+    public String getAgencia() {
+        return agencia;
     }
 }
