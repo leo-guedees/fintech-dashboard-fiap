@@ -1,26 +1,26 @@
-public class Transacao {
+public class Cartao_Investimento {
 
-    private Integer idTransacao;
-    private String tipoTransacao;
-    private Double valor;
-    private String dataTransacao;
+    private Integer numeroCartao;
+    private String tipoCartao;
+    private Double limite;
+    private Double saldoInvestido;
 
-    public Transacao(Integer idTransacao, String tipoTransacao, Double valor, String dataTransacao) {
-        this.idTransacao = idTransacao;
-        this.tipoTransacao = tipoTransacao;
-        this.valor = valor;
-        this.dataTransacao = dataTransacao;
+    public Cartao_Investimento(Integer numeroCartao, String tipoCartao, Double limite, Double saldoInvestido) {
+        this.numeroCartao = numeroCartao;
+        this.tipoCartao = tipoCartao;
+        this.limite = limite;
+        this.saldoInvestido = saldoInvestido;
     }
 
-    public void realizarTransacao() {
-        System.out.println("Executando método realizarTransacao.");
+    public void consultarLimite() {
+        System.out.println("Executando método consultarLimite.");
     }
 
-    public void consultarTransacao() {
-        System.out.println("Executando método consultarTransacao.");
+    public void realizarInvestimento() {
+        System.out.println("Executando método realizarInvestimento.");
     }
 
-    public void cancelarTransacao() {
-        System.out.println("Executando método cancelarTransacao.");
+    public void consultarSaldoInvestido() {
+        System.out.println("Executando método consultarSaldoInvestido.");
     }
 }
