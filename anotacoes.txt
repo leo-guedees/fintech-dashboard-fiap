@@ -1,26 +1,26 @@
-public class Usuario {
+public class Conta {
 
-    private Integer idUsuario;
-    private String nome;
-    private String email;
-    private String telefone;
+    private Integer numeroConta;
+    private String tipoConta;
+    private Double saldo;
+    private String agencia;
 
-    public Usuario(Integer idUsuario, String nome, String email, String telefone) {
-        this.idUsuario = idUsuario;
-        this.nome = nome;
-        this.email = email;
-        this.telefone = telefone;
+    public Conta(Integer numeroConta, String tipoConta, Double saldo, String agencia) {
+        this.numeroConta = numeroConta;
+        this.tipoConta = tipoConta;
+        this.saldo = saldo;
+        this.agencia = agencia;
     }
 
-    public void cadastrarUsuario() {
-        System.out.println("Executando método cadastrarUsuario.");
+    public void consultarSaldo() {
+        System.out.println("Executando método consultarSaldo.");
     }
 
-    public void atualizarUsuario() {
-        System.out.println("Executando método atualizarUsuario.");
+    public void realizarDeposito() {
+        System.out.println("Executando método realizarDeposito.");
     }
 
-    public void consultarUsuario() {
-        System.out.println("Executando método consultarUsuario.");
+    public void realizarSaque() {
+        System.out.println("Executando método realizarSaque.");
     }
 }
