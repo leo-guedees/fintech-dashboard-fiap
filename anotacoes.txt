@@ -1,19 +1,20 @@
-public class ContaCorrente extends Conta {
+public class ContaInvestimento extends Conta {
 
-    private Double limite;
+    private Double percentualRendimento;
 
-    public ContaCorrente(Integer numeroConta, Double saldo, String agencia, Double limite) {
-        super(numeroConta, "Conta Corrente", saldo, agencia);
-        this.limite = limite;
+    public ContaInvestimento(Integer numeroConta, Double saldo, String agencia, Double percentualRendimento) {
+        super(numeroConta, "Conta Investimento", saldo, agencia);
+        this.percentualRendimento = percentualRendimento;
     }
 
     @Override
     public void consultarSaldo() {
-        System.out.println("Saldo da Conta Corrente: R$ " + getSaldo());
-        System.out.println("Limite disponível: R$ " + limite);
+        System.out.println("Saldo da Conta Investimento: R$ " + getSaldo());
+        System.out.println("Rendimento: " + percentualRendimento + "%");
     }
 
-    public void consultarLimite() {
-        System.out.println("Limite disponível: R$ " + limite);
+    public void calcularRendimento() {
+        Double rendimento = getSaldo() * (percentualRendimento / 100);
+        System.out.println("Rendimento estimado: R$ " + rendimento);
     }
 }
