@@ -3,127 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fintech Dashboard</title>
-
-    <script src="https://cdn.tailwindcss.com"></script>
 
     <link rel="stylesheet" href="style.css">
+
+    <title>Smart Flow</title>
+
+    <link rel="stylesheet" href="styles.css">
 </head>
-<div class="container">
 
-    <aside class="sidebar">
+<body>
 
-        <div>
+<!-- Aplicação -->
+<div id="app">
 
-            <div class="logo">
-                Fintech
+    <!-- =========================
+         TELA DA CÂMERA
+    ========================== -->
+    <section id="camera-screen" class="screen active">
+
+        <div class="camera-preview">
+
+            <div class="camera-top">
+                <button onclick="toggleFlash()">⚡</button>
+
+                <button onclick="changeZoom()" id="zoom-button">1x</button>
+
+                <button onclick="changeCamera()">◎</button>
             </div>
 
-            <div class="menu">
-
-                <div class="menu-item active">
-                    Dashboard
-                </div>
-
-                <div class="menu-item">
-                    Registrar Gasto
-                </div>
-
-                <div class="menu-item">
-                    Lista de Gastos
-                </div>
-
-                <div class="menu-item">
-                    Saldo
-                </div>
-
+            <div class="camera-center">
+                <div class="focus-circle"></div>
             </div>
 
-        </div>
+            <div class="camera-controls">
 
-        <div class="user">
-            <strong>Leonardo</strong><br>
-            Usuário
-        </div>
-
-    </aside>
-
-    <main class="main">
-
-        <h1>Dashboard</h1>
-
-        <div class="saldo-card">
-            <span>Saldo Total</span>
-            <h2>R$ 5.000,00</h2>
-        </div>
-
-        <div class="cards">
-
-            <div class="card">
-
-                <h3>Últimos Gastos</h3>
-
-                <div class="gasto">
-                    <div>
-                        <strong>Mercado</strong><br>
-                        <small>Alimentação</small>
-                    </div>
-                    <strong>R$ 100,00</strong>
+                <div class="camera-options">
+                    <button onclick="toggleNightMode()">☾</button>
+                    <button onclick="changeExposure()">☀</button>
+                    <button onclick="changeFocus()">◐</button>
+                    <button onclick="changeCamera()">◎</button>
+                    <button onclick="toggleHDR()">◉</button>
+                    <button onclick="changeZoom()" id="zoom-bottom">1</button>
+                    <button onclick="openCameraSettings()">⌕</button>
                 </div>
 
-                <div class="gasto">
-                    <div>
-                        <strong>Uber</strong><br>
-                        <small>Transporte</small>
-                    </div>
-                    <strong>R$ 50,00</strong>
-                </div>
+                <div class="camera-bottom">
 
-                <div class="gasto">
-                    <div>
-                        <strong>Restaurante</strong><br>
-                        <small>Alimentação</small>
-                    </div>
-                    <strong>R$ 80,00</strong>
-                </div>
+                    <button onclick="resetCamera()">↻</button>
 
-                <div class="gasto">
-                    <div>
-                        <strong>Cinema</strong><br>
-                        <small>Lazer</small>
-                    </div>
-                    <strong>R$ 45,00</strong>
-                </div>
+                    <button class="capture-button" onclick="takePhoto()">
+                        <span></span>
+                    </button>
 
-            </div>
-
-            <div class="card">
-
-                <h3>Gastos por Categoria</h3>
-
-                <div class="grafico"></div>
-
-                <div class="legenda">
-
-                    <div class="item-legenda">
-                        <div class="cor" style="background:#2563eb"></div>
-                        Alimentação
-                    </div>
-
-                    <div class="item-legenda">
-                        <div class="cor" style="background:#60a5fa"></div>
-                        Transporte
-                    </div>
-
-                    <div class="item-legenda">
-                        <div class="cor" style="background:#93c5fd"></div>
-                        Lazer
-                    </div>
-
-                    <div class="item-legenda">
-                        <div class="cor" style="background:#dbeafe"></div>
-                        Outros
-                    </div>
+                    <button class="gallery-button" onclick="showScreen('gallery-screen')">
+                        <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=100"
+                             alt="Galeria">
+                    </button>
 
                 </div>
 
@@ -131,13 +66,394 @@
 
         </div>
 
-    </main>
+    </section>
+
+
+    <!-- =========================
+         TELA DE MODO INTELIGENTE
+    ========================== -->
+    <section id="mode-screen" class="screen">
+
+        <header class="page-header">
+            <button onclick="showScreen('camera-screen')">←</button>
+            <h2>Editar modo inteligente</h2>
+            <button>✓</button>
+        </header>
+
+        <div class="mode-content">
+
+            <label>Procurar modo existente</label>
+            <input type="text" placeholder="Pesquisar modo">
+
+            <label>Nome</label>
+            <input type="text" placeholder="Novo modo">
+
+            <h3>ISO</h3>
+
+            <div class="options">
+                <button class="selected">Auto</button>
+                <button>100</button>
+                <button>200</button>
+                <button>400</button>
+                <button>800</button>
+            </div>
+
+            <h3>Nível de cor da imagem</h3>
+
+            <div class="options">
+                <button class="selected">Auto</button>
+                <button>Dia limpo</button>
+                <button>Nublado</button>
+                <button>Escuro</button>
+            </div>
+
+            <h3>Foco</h3>
+
+            <div class="options">
+                <button class="selected">Auto</button>
+                <button>Macro</button>
+                <button>Super</button>
+                <button>Manual</button>
+            </div>
+
+            <h3>Velocidade do obturador</h3>
+
+            <div class="options">
+                <button class="selected">Auto</button>
+                <button>1/4000</button>
+                <button>1/2000</button>
+                <button>1/1000</button>
+                <button>1/500</button>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         PÁGINA INICIAL
+    ========================== -->
+    <section id="home-screen" class="screen">
+
+        <header class="main-header">
+            <div>
+                <small>Página Inicial</small>
+                <h1>Smart Flow</h1>
+            </div>
+
+            <strong>SF</strong>
+        </header>
+
+        <div class="home-content">
+
+            <div class="storage-card">
+                <h3>☁ Armazenamento</h3>
+                <p>Sincronizado</p>
+
+                <div class="storage-bar"></div>
+
+                <small>24,8 GB de 128 GB</small>
+            </div>
+
+            <h3>◷ Mídia Recente</h3>
+
+            <div class="media-grid">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+
+            <div class="ai-card">
+                <div>
+                    <strong>✦ Sugestões de IA</strong>
+                    <small>Organize suas fotos automaticamente</small>
+                </div>
+
+                <button id="ai-correct-button" onclick="organizePhotos()">Corrigir</button>
+            </div>
+
+            <div class="smart-card" onclick="openSmartModes()">
+                <strong>◈ Explorar Modos Inteligentes</strong>
+                <p>Explore e crie configurações de câmera.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         GALERIA
+    ========================== -->
+    <section id="gallery-screen" class="screen">
+
+        <header class="main-header">
+            <div>
+                <small>Galeria</small>
+                <h2>342 Fotos · 156 Vídeos</h2>
+            </div>
+
+            <strong>SF</strong>
+        </header>
+
+        <div class="gallery-content">
+
+            <h3>▦ Categorias Inteligentes</h3>
+
+            <div class="category-grid">
+
+                <div class="category" onclick="openFavorites()">
+                    <span>♡</span>
+                    <strong>Favoritos</strong>
+                    <small>158 itens</small>
+                </div>
+
+                <div class="category" onclick="openPeople()">
+                    <span>♟</span>
+                    <strong>Pessoas</strong>
+                    <small>23 álbuns</small>
+                </div>
+
+                <div class="category" onclick="openPlaces()">
+                    <span>⌖</span>
+                    <strong>Lugares</strong>
+                    <small>102 itens</small>
+                </div>
+
+                <div class="category" onclick="openSelfies()">
+                    <span>☺</span>
+                    <strong>Selfies</strong>
+                    <small>105 itens</small>
+                </div>
+
+            </div>
+
+            <h3>▱ Memórias Recentes</h3>
+
+            <div class="memory-card">
+                <div class="memory-image"></div>
+
+                <div class="memory-info">
+                    <strong>Aventura do fim de semana</strong>
+                    <small>10 - 12 MAR, 2026</small>
+                </div>
+
+                <button onclick="openMemory()">✎</button>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- =========================
+         CATEGORIA: FAVORITOS
+    ========================= -->
+    <section id="favorites-screen" class="screen">
+
+        <header class="main-header">
+            <div>
+                <small>Galeria</small>
+                <h2>Favoritos</h2>
+            </div>
+
+            <strong>158 itens</strong>
+        </header>
+
+        <div class="gallery-content">
+
+            <h3>Fotos favoritas</h3>
+
+            <div class="category">
+                <span>♡</span>
+                <strong>Suas fotos favoritas</strong>
+                <small>158 itens</small>
+            </div>
+
+            <button onclick="showScreen('gallery-screen')">← Voltar para Galeria</button>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         CATEGORIA: PESSOAS
+    ========================= -->
+    <section id="people-screen" class="screen">
+
+        <header class="main-header">
+            <div>
+                <small>Galeria</small>
+                <h2>Pessoas</h2>
+            </div>
+
+            <strong>23 álbuns</strong>
+        </header>
+
+        <div class="gallery-content">
+
+            <h3>Pessoas encontradas</h3>
+
+            <div class="category">
+                <span>♟</span>
+                <strong>Álbuns de pessoas</strong>
+                <small>23 álbuns</small>
+            </div>
+
+            <button onclick="showScreen('gallery-screen')">← Voltar para Galeria</button>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         CATEGORIA: LUGARES
+    ========================= -->
+    <section id="places-screen" class="screen">
+
+        <header class="main-header">
+            <div>
+                <small>Galeria</small>
+                <h2>Lugares</h2>
+            </div>
+
+            <strong>102 itens</strong>
+        </header>
+
+        <div class="gallery-content">
+
+            <h3>Fotos por lugares</h3>
+
+            <div class="category">
+                <span>⌖</span>
+                <strong>Lugares visitados</strong>
+                <small>102 itens</small>
+            </div>
+
+            <button onclick="showScreen('gallery-screen')">← Voltar para Galeria</button>
+
+        </div>
+
+    </section>
+
+    <!-- =========================
+         CATEGORIA: SELFIES
+    ========================= -->
+    <section id="selfies-screen" class="screen">
+
+        <header class="main-header">
+            <div>
+                <small>Galeria</small>
+                <h2>Selfies</h2>
+            </div>
+
+            <strong>105 itens</strong>
+        </header>
+
+        <div class="gallery-content">
+
+            <h3>Suas selfies</h3>
+
+            <div class="category">
+                <span>☺</span>
+                <strong>Fotos de selfie</strong>
+                <small>105 itens</small>
+            </div>
+
+            <button onclick="showScreen('gallery-screen')">← Voltar para Galeria</button>
+
+        </div>
+
+    </section>
+
+    <!-- =========================
+         VISUALIZAÇÃO DA FOTO
+    ========================== -->
+    <section id="photo-screen" class="screen">
+
+        <div class="photo-view">
+
+            <div class="photo-top">
+                <button onclick="showScreen('gallery-screen')">←</button>
+                <button>♡</button>
+            </div>
+
+            <div class="photo-placeholder">
+                <span>Foto capturada</span>
+            </div>
+
+            <div class="photo-actions">
+                <button>🗑</button>
+                <button>↗</button>
+                <button>✎</button>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         MENU INFERIOR
+    ========================== -->
+    <nav class="bottom-nav">
+
+        <button onclick="showScreen('home-screen')">
+            ⌂
+        </button>
+
+        <button onclick="showScreen('camera-screen')">
+            ◎
+        </button>
+
+        <button onclick="showScreen('gallery-screen')">
+            ▣
+        </button>
+
+    </nav>
 
 </div>
 
+<script src="script.js"></script>
+
+<!-- Modal de categorias -->
+<div id="category-modal" class="category-modal">
+    <div class="category-modal-content">
+
+        <button class="close-modal" onclick="closeCategoryModal()">×</button>
+
+        <h2 id="category-title">Categoria</h2>
+        <p id="category-description"></p>
+
+        <div id="category-items" class="category-items">
+        </div>
+
+    </div>
+</div>
+
+<!-- Modal da memória -->
+<div id="memory-modal" class="category-modal">
+    <div class="category-modal-content">
+
+        <button class="close-modal" onclick="closeMemory()">×</button>
+
+        <h2>Aventura do fim de semana</h2>
+
+        <p>10 - 12 MAR, 2026</p>
+
+        <div class="category-items">
+            <div class="category-item">📸 24 fotos</div>
+            <div class="category-item">🎥 6 vídeos</div>
+            <div class="category-item">📍 Lugares visitados</div>
+            <div class="category-item">❤️ Favoritos</div>
+        </div>
+
+    </div>
+</div>
 </body>
 </html>
-
-<footer class="mt-8 text-center text-gray-500">
-    © 2026 Fintech Dashboard - FIAP
-</footer>
